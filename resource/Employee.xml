@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emp:employees xmlns:emp="http://xyz.com/thisisEx/emp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xyz.com/thisisEx/emp Employee.xsd ">
+  <emp:recordCount>2</emp:recordCount>
+    <emp:employee>
+        <emp:empId>MAN0216KON</emp:empId>
+        <emp:firstName>Manava</emp:firstName>
+        <emp:lastName>Koneya</emp:lastName>
+        <emp:middleName>madhya</emp:middleName>
+        <emp:address>
+            <emp:street>Beedhi</emp:street>
+            <emp:city>nagara</emp:city>
+            <emp:state>rajya</emp:state>
+            <emp:country>desha</emp:country>
+            <emp:postalcode>123456</emp:postalcode>
+        </emp:address>
+        <emp:workPhone>919337733189</emp:workPhone>
+        <emp:homePhone>919337733189</emp:homePhone>
+        <emp:mobile>919337733189</emp:mobile>
+        <emp:mobile_2>919337733189</emp:mobile_2>
+        <emp:email_1>abc@xyz.com</emp:email_1>
+        <emp:email_2>abc@xyz.com</emp:email_2>
+        <emp:projects>
+            <emp:project id="1">
+                <emp:projCode>PRJ0418</emp:projCode>
+                <emp:projUnit>Eng</emp:projUnit>
+                <emp:projManager>YAR1112MAN</emp:projManager>
+                <emp:projStartDate>2018-04-19T23:41:34.85</emp:projStartDate>
+            </emp:project>
+            <emp:project id="2">
+                <emp:projCode>PRJ1217</emp:projCode>
+                <emp:projUnit>Eng</emp:projUnit>
+                <emp:projManager>YAR1112MAN</emp:projManager>
+                <emp:projStartDate>2017-12-19T23:41:34.85</emp:projStartDate>
+                <emp:projEndDate>2018-02-19T23:41:34.85</emp:projEndDate>
+            </emp:project>
+        </emp:projects>
+        <emp:workSite>
+            <emp:cubeId>1234S</emp:cubeId>
+            <emp:floorNumber>2</emp:floorNumber>
+            <emp:bldName>Arya</emp:bldName>
+            <emp:cubeMode>closed</emp:cubeMode>
+            <emp:deskNumber>919337733189</emp:deskNumber>
+        </emp:workSite>
+    </emp:employee>
+    <emp:employee>
+        <emp:empId>NAM0215NOK</emp:empId>
+        <emp:firstName>NAMMAVA</emp:firstName>
+        <emp:lastName>nokayya</emp:lastName>
+        <emp:middleName>yakayya</emp:middleName>
+        <emp:address>
+            <emp:street>Beedhi</emp:street>
+            <emp:city>nagara</emp:city>
+            <emp:state>rajya</emp:state>
+            <emp:country>desha</emp:country>
+            <emp:postalcode>123456</emp:postalcode>
+        </emp:address>
+        <emp:workPhone>919337733189</emp:workPhone>
+        <emp:homePhone>919337733189</emp:homePhone>
+        <emp:mobile>919337733189</emp:mobile>
+        <emp:mobile_2>919337733189</emp:mobile_2>
+        <emp:email_1>abc@xyz.com</emp:email_1>
+        <emp:email_2>abc@xyz.com</emp:email_2>
+        <emp:projects>
+            <emp:project id="1">
+                <emp:projCode>PRJ0418</emp:projCode>
+                <emp:projUnit>Eng</emp:projUnit>
+                <emp:projManager>YAR1112MAN</emp:projManager>
+                <emp:projStartDate>2018-04-19T23:41:34.85</emp:projStartDate>
+            </emp:project>
+            <emp:project id="2">
+                <emp:projCode>PRJ1217</emp:projCode>
+                <emp:projUnit>Eng</emp:projUnit>
+                <emp:projManager>YAR1112MAN</emp:projManager>
+                <emp:projStartDate>2017-12-19T23:41:34.85</emp:projStartDate>
+                <emp:projEndDate>2018-02-19T23:41:34.85</emp:projEndDate>
+            </emp:project>
+            <emp:project id="3">
+                <emp:projCode>PRJ1217</emp:projCode>
+                <emp:projUnit>Eng</emp:projUnit>
+                <emp:projManager>YAR1112MAN</emp:projManager>
+                <emp:projStartDate>2017-12-19T23:41:34.85</emp:projStartDate>
+                <emp:projEndDate>2018-02-19T23:41:34.85</emp:projEndDate>
+            </emp:project>
+        </emp:projects>
+        <emp:workSite>
+            <emp:cubeId>1234S</emp:cubeId>
+            <emp:floorNumber>2</emp:floorNumber>
+            <emp:bldName>Arya</emp:bldName>
+            <emp:cubeMode>closed</emp:cubeMode>
+            <emp:deskNumber>919337733189</emp:deskNumber>
+        </emp:workSite>
+    </emp:employee>
+</emp:employees>

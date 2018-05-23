@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid Studio 2018 (https://www.liquid-technologies.com)-->
+<xs:schema xmlns:emp="http://xyz.com/thisisEx/emp" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xyz.com/thisisEx/emp" version="1.00" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="STR-10">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="STR-25">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NamesType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="EmpIdType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+            <xs:pattern value="[A-Z]{3}[0-9]{4}[A-Z]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PCType">
+        <xs:restriction base="xs:integer">
+            <xs:totalDigits value="6" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="EmailType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="6" />
+            <xs:maxLength value="254" />
+            <xs:pattern value="[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PhoneType">
+        <xs:restriction base="xs:string">
+            <xs:length value="12" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PrjCodeType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="7" />
+            <xs:maxLength value="10" />
+            <xs:pattern value="([A-Z]{3})+[0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="UintType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DateType">
+        <xs:restriction base="xs:dateTime" />
+    </xs:simpleType>
+    <xs:simpleType name="CubeIdType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FloorNumType">
+        <xs:restriction base="xs:integer">
+            <xs:totalDigits value="2" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="ProjectType">
+        <xs:sequence>
+            <xs:element name="projCode" type="emp:PrjCodeType" />
+            <xs:element name="projUnit" type="emp:UintType" />
+            <xs:element name="projManager" type="emp:EmpIdType" />
+            <xs:element name="projStartDate" type="emp:DateType" />
+            <xs:element name="projEndDate" type="emp:DateType" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:integer" use="required" />
+    </xs:complexType>
+    <xs:complexType name="ProjectListType">
+        <xs:choice>
+            <xs:element name="project" type="emp:ProjectType" maxOccurs="3" />
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="WorkSiteType">
+        <xs:sequence>
+            <xs:element name="cubeId" type="emp:CubeIdType" />
+            <xs:element name="floorNumber" type="emp:FloorNumType" />
+            <xs:element name="bldName" type="emp:STR-25" />
+            <xs:element name="cubeMode" type="emp:STR-10" minOccurs="0" />
+            <xs:element name="deskNumber" type="emp:PhoneType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:group name="CommunicationGroup">
+        <xs:sequence>
+            <xs:element name="workPhone" type="emp:PhoneType" minOccurs="0" />
+            <xs:element name="homePhone" type="emp:PhoneType" minOccurs="0" />
+            <xs:element name="mobile" type="emp:PhoneType" />
+            <xs:element name="mobile_2" type="emp:PhoneType" minOccurs="0" />
+            <xs:element name="email_1" type="emp:EmailType" />
+            <xs:element name="email_2" type="emp:EmailType" minOccurs="0" />
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="NameGroup">
+        <xs:sequence>
+            <xs:element name="firstName" type="emp:NamesType" />
+            <xs:element name="lastName" type="emp:NamesType" />
+            <xs:element name="middleName" type="emp:NamesType" minOccurs="0" />
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element name="street" type="xs:string" />
+            <xs:element name="street_l2" type="xs:string" minOccurs="0" />
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="state" type="xs:string" />
+            <xs:element name="country" type="xs:string" minOccurs="0" />
+            <xs:element name="postalcode" type="emp:PCType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EmployeeType">
+        <xs:sequence>
+            <xs:element name="empId" type="emp:EmpIdType" />
+            <xs:group ref="emp:NameGroup" />
+            <xs:element name="address" type="emp:AddressType" />
+            <xs:group ref="emp:CommunicationGroup" />
+            <xs:element name="projects" type="emp:ProjectListType" />
+            <xs:element name="workSite" type="emp:WorkSiteType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EmployeeList">
+        <xs:sequence>
+            <xs:element name="recordCount" type="xs:integer" />
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="employee" type="emp:EmployeeType" />
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="employees" type="emp:EmployeeList">
+        <xs:annotation>
+            <xs:documentation>Root Element for Employee List</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+</xs:schema>
